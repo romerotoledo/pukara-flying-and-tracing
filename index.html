@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Flying and Tracing: a 70-second animated flyover of agricultural landscapes at Guatacondo and Pampa Iluga, with progressive tracing of existing mapping outputs. By Hugo Romero-Toledo.">
+  <meta name="theme-color" content="#0b191b">
+  <title>Flying and Tracing — Hugo Romero-Toledo</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b191b;--panel:#102225;--ink:#f0eee6;--muted:#b0c0bb;--accent:#66d7c0;--sand:#d7c29a;--line:rgba(187,216,207,.19)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    .wrap{width:min(1440px,calc(100% - 80px));margin-inline:auto}
+    header{padding-block:28px;border-bottom:1px solid var(--line)}
+    .masthead{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+    .masthead strong{color:var(--ink);font-size:13px;letter-spacing:.2em;font-weight:650}
+    .masthead span:before{content:"";display:inline-block;width:1px;height:11px;background:var(--line);margin-right:14px;vertical-align:-1px}
+    main{padding-block:52px 58px}
+    .intro{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;margin-bottom:30px}
+    h1{margin:0;font-weight:500;letter-spacing:-.05em;font-size:clamp(38px,5.7vw,76px);line-height:1.08}
+    .subtitle{font-size:clamp(16px,1.55vw,21px);color:var(--muted);margin:16px 0 0;max-width:750px}
+    .author{margin:0 0 3px;white-space:nowrap;color:var(--sand);font-size:14px}
+    .player{background:#040b0c;border:1px solid var(--line);overflow:hidden}
+    video{display:block;width:100%;aspect-ratio:16/9;background:#040b0c;object-fit:contain}
+    .chapters{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-top:0;background:var(--panel)}
+    .chapter{appearance:none;display:flex;align-items:center;gap:12px;flex:1 1 230px;text-align:left;padding:18px 22px;border:0;border-top:2px solid transparent;background:transparent;color:var(--muted);font:inherit;font-size:13px;cursor:pointer;transition:background .15s,color .15s}
+    .chapter time{font-size:11px;font-variant-numeric:tabular-nums;color:var(--accent);letter-spacing:.02em;white-space:nowrap}
+    .chapter:hover{background:rgba(102,215,192,.06);color:var(--ink)}
+    .chapter:disabled{cursor:wait;opacity:.55}
+    .chapter[aria-pressed="true"]{border-top-color:var(--accent);color:var(--ink);background:rgba(102,215,192,.035)}
+    a:focus-visible,button:focus-visible,video:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .details{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;margin-top:28px;align-items:start}
+    .note{max-width:750px;color:var(--muted);font-size:14px}
+    .note p{margin:0 0 8px}
+    .note p:first-child{color:var(--ink)}
+    .downloads{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .download{display:inline-flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:3px;padding:11px 15px;white-space:nowrap;font-size:13px}
+    .download:after{content:"↓";color:var(--accent);font-size:16px;line-height:1}
+    .download:hover{border-color:var(--accent);background:rgba(102,215,192,.04)}
+    .playback-status{margin:12px 0 0;color:var(--sand);font-size:13px}
+    .playback-status:empty{display:none}
+    footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:12px}
+    footer .wrap{display:flex;justify-content:space-between;gap:16px}
+    @media(max-width:1000px){.wrap{width:calc(100% - 48px)}.intro{align-items:flex-start;flex-direction:column;gap:17px}.details{grid-template-columns:1fr;gap:18px}.downloads{justify-content:flex-start}.chapter{flex-basis:45%}}
+    @media(max-width:560px){.wrap{width:calc(100% - 32px)}header{padding-block:21px}.masthead{font-size:9px;letter-spacing:.09em;gap:10px}.masthead span:before{margin-right:10px}main{padding-block:34px}.intro{margin-bottom:24px}.subtitle{margin-top:13px}.chapter{padding:14px 12px;gap:8px;font-size:12px}.chapter time{font-size:10px}.details{margin-top:22px}.note{font-size:13px}.author{font-size:13px}footer .wrap{flex-direction:column;gap:5px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap masthead"><strong>PUKARA</strong><span>Agricultural landscapes</span></div>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <div>
+        <h1>Flying and Tracing</h1>
+        <p class="subtitle">Agricultural landscapes of Guatacondo and Pampa Iluga</p>
+      </div>
+      <p class="author">Hugo Romero-Toledo</p>
+    </div>
+    <section aria-label="Film">
+      <div class="player">
+        <video id="film" controls playsinline preload="metadata" poster="assets/cover.jpg" aria-label="Flying and Tracing: Guatacondo and Pampa Iluga" aria-describedby="film-description">
+          <source src="assets/flying-and-tracing-hd.mp4" type="video/mp4">
+          Your browser does not support this video. <a href="assets/flying-and-tracing-hd.mp4">Download the film</a> to watch it.
+        </video>
+      </div>
+      <nav class="chapters" aria-label="Film chapters">
+        <button class="chapter" type="button" data-time="0" aria-pressed="true"><time datetime="PT0S">00:00</time><span>Guatacondo 1</span></button>
+        <button class="chapter" type="button" data-time="23" aria-pressed="false"><time datetime="PT23S">00:23</time><span>Guatacondo 2</span></button>
+        <button class="chapter" type="button" data-time="41" aria-pressed="false"><time datetime="PT41S">00:41</time><span>Iluga · Light ground</span></button>
+        <button class="chapter" type="button" data-time="53" aria-pressed="false"><time datetime="PT53S">00:53</time><span>Iluga · Dark ground &amp; curve</span></button>
+      </nav>
+      <p id="playback-status" class="playback-status" role="status" aria-live="polite"></p>
+      <div class="details">
+        <div class="note" id="film-description">
+          <p>A 70-second animated flyover over satellite imagery, with progressive tracing.</p>
+          <p>The film brings together existing mapping outputs. Dashed lines indicate uncertain or fragmentary traces.</p>
+        </div>
+        <div class="downloads" aria-label="Download the film">
+          <a class="download" href="assets/flying-and-tracing-hd.mp4" download>Download HD</a>
+          <a class="download" href="assets/flying-and-tracing-mobile.mp4" download>Download mobile version</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>Hugo Romero-Toledo</span><span>Guatacondo 1 · Guatacondo 2 · Pampa Iluga</span></div></footer>
+  <script>
+    (() => {
+      const film = document.getElementById('film');
+      const buttons = [...document.querySelectorAll('.chapter')];
+      const status = document.getElementById('playback-status');
+      const originalSource = film.querySelector('source').src;
+      let blobPromise = null;
+      let blobURL = null;
+      let usingBlob = false;
+      let loading = false;
+      const setActive = () => {
+        const current = film.currentTime || 0;
+        let active = 0;
+        buttons.forEach((button, index) => { if (current >= Number(button.dataset.time)) active = index; });
+        buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === active)));
+      };
+      const canSeek = (time) => {
+        if (time === 0 || usingBlob) return true;
+        for (let i = 0; i < film.seekable.length; i++) {
+          if (film.seekable.start(i) <= time && film.seekable.end(i) >= time) return true;
+        }
+        return false;
+      };
+      const loadMetadata = (source) => new Promise((resolve, reject) => {
+        if (!source && film.readyState >= 1) { resolve(); return; }
+        let timer;
+        const cleanUp = () => {
+          clearTimeout(timer);
+          film.removeEventListener('loadedmetadata', onReady);
+          film.removeEventListener('error', onError);
+        };
+        const onReady = () => { cleanUp(); resolve(); };
+        const onError = () => { cleanUp(); reject(new Error('Unable to load video metadata.')); };
+        film.addEventListener('loadedmetadata', onReady);
+        film.addEventListener('error', onError);
+        timer = setTimeout(onError, 45000);
+        if (source) film.src = source;
+        film.load();
+      });
+      const getBlobURL = () => {
+        if (!blobPromise) {
+          blobPromise = (async () => {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 120000);
+            try {
+              const response = await fetch(originalSource, {signal: controller.signal});
+              if (!response.ok) throw new Error('Unable to download video.');
+              const blob = await response.blob();
+              if (!blob.size) throw new Error('Empty video download.');
+              blobURL = URL.createObjectURL(blob);
+              return blobURL;
+            } finally {
+              clearTimeout(timer);
+            }
+          })().catch(error => { blobPromise = null; throw error; });
+        }
+        return blobPromise;
+      };
+      const seekAndPlay = async (time) => {
+        film.currentTime = time;
+        setActive();
+        status.textContent = '';
+        try {
+          await film.play();
+        } catch (_) {
+          status.textContent = 'Chapter selected. Use the video play control to start playback.';
+        }
+      };
+      buttons.forEach(button => button.addEventListener('click', async () => {
+        if (loading) return;
+        const time = Number(button.dataset.time);
+        status.textContent = '';
+        if (film.readyState >= 1 && canSeek(time)) {
+          await seekAndPlay(time);
+          return;
+        }
+        loading = true;
+        buttons.forEach(item => { item.disabled = true; });
+        status.textContent = 'Loading selected chapter…';
+        film.pause();
+        try {
+          await loadMetadata();
+          if (!canSeek(time)) {
+            const url = await getBlobURL();
+            await loadMetadata(url);
+            usingBlob = true;
+          }
+          await seekAndPlay(time);
+        } catch (_) {
+          if (film.src && film.src !== originalSource) {
+            usingBlob = false;
+            film.src = originalSource;
+            film.load();
+          }
+          status.textContent = 'This chapter could not be loaded. You can play the full film using the video controls, or download it below.';
+        } finally {
+          loading = false;
+          buttons.forEach(item => { item.disabled = false; });
+        }
+      }));
+      film.addEventListener('timeupdate', setActive);
+      film.addEventListener('seeked', setActive);
+      window.addEventListener('pagehide', event => {
+        if (!event.persisted && blobURL) URL.revokeObjectURL(blobURL);
+      });
+    })();
+  </script>
+</body>
+</html>
